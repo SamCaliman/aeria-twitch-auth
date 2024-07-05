@@ -55,7 +55,7 @@ twitchRouter.POST('/twitchAuth', async(context)=>{
 
   const twitchTempToken = await exchangeCodeForAccessToken(context.request.payload.code) //swap code for access token
   const twitchTempUser = await fetchUser(twitchTempToken.access_token) // get twitch user data
-  console.log(twitchTempUser)
+
   //checks if there's an user with a twitch account on the database.
   const { error: userError ,result: user } = await context.collections.user.functions.get({
     filters: {

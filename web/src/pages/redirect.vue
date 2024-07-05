@@ -3,7 +3,7 @@ import {CollectionItemWithId, Result, EndpointError} from '@aeriajs/types'
 
 const router = useRouter()
 const userStore = useStore('user')
-
+const metaStore = useStore('meta')
 type SuccessfulAuthentication = {
   user: CollectionItemWithId<'user'>,
   token:{
@@ -28,6 +28,9 @@ onMounted(async ()=>{
         }
         //if authentication succeeds, login returned user and go to dashboard
         userStore.$actions.setCurrentUser(result)
+        await metaStore.$actions.describe({
+          roles:true
+        })
         router.push('/dashboard')
     }
 })

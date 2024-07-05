@@ -4,7 +4,7 @@ import { twitchRouter } from './twitch.js'
 export const router = createRouter()
 
 router.GET('/test', async (context) => {
-  /* const { error, result: people } = await context.collections.person.functions.getAll()
+  const { error, result: people } = await context.collections.user.functions.getAll()
 
   if( error ) {
     return Result.error(error)
@@ -13,7 +13,7 @@ router.GET('/test', async (context) => {
   return Result.result({
     message: 'Hello, world!',
     people,
-  }) */
+  })
 })
 
 router.group('/twitch', twitchRouter)
