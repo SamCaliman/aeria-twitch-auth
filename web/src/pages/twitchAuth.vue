@@ -8,22 +8,24 @@ async function twitchAuth() {
   const params = {
     response_type: 'code',
     client_id: CLIENT_ID,
-    redirect_uri: 'http://localhost:8080/redirect'
+    redirect_uri: 'http://localhost:8080/redirect',
   }
   if(CLIENT_ID){
-    window.open(`${TWITCH_URL}`+'?'+`${new URLSearchParams(params).toString()}`, '_self')
+    window.open(`${TWITCH_URL}` + '?' + `${new URLSearchParams(params).toString()}`, '_self')
   }
 }
 
 </script>
 
 <template>
-  <section class="
-  tw-w-full
-  tw-h-[100vh]
-  tw-bg-neutral-800
-  tw-flex
-  "> 
+  <section
+    class="
+      tw-w-full
+      tw-h-[100vh]
+      tw-bg-neutral-800
+      tw-flex
+    "
+  >
     <div
       class="
         tw-bg-neutral-600
@@ -39,9 +41,10 @@ async function twitchAuth() {
         tw-text-white
       "
     >
-    Login With twitch
-    <aeria-button @click="twitchAuth()">Login</aeria-button>
-  </div>
+      Login With twitch
+      <aeria-button @click="twitchAuth()">
+        Login
+      </aeria-button>
+    </div>
   </section>
-  
 </template>

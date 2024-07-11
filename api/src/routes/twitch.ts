@@ -20,7 +20,7 @@ async function exchangeCodeForAccessToken(code: string) {
     grant_type: 'authorization_code',
     client_id: CLIENT_ID,
     client_secret: CLIENT_SECRET,
-    redirect_uri: 'http://localhost:8080/redirect'
+    redirect_uri: 'http://localhost:8080/redirect',
   }
   const twitchResponse = await fetch(TWITCH_TOKEN_URL,{
     method: 'POST',
@@ -62,9 +62,9 @@ twitchRouter.POST('/auth', async(context)=>{
       twitch_id: twitchTempUser.id.toString(),
     },
   })
-  
+
   if(userError){
-    
+
     //Check what user error returns
     switch(userError.code){
       case ACError.ResourceNotFound:{
@@ -84,7 +84,7 @@ twitchRouter.POST('/auth', async(context)=>{
         //Authenticate if successful, and return result to web
         return Result.result(await successfulAuthentication(userInsertResult._id, context))
       }
-      default: 
+      default:
         return Result.error(userError)
     }
   }
