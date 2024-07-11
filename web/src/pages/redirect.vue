@@ -18,9 +18,9 @@ onMounted(async ()=>{
 
     //if twitch code exists call API authentication route
     if(twitchTempCode){
-        const {error,result}: Result.Either<EndpointError, SuccessfulAuthentication>= await aeria.twitch.twitchAuth.POST({
+        const {error,result} = await aeria.twitch.auth.POST<Result.Either<EndpointError, SuccessfulAuthentication>>({
             code: twitchTempCode
-        }) as any //this casting 'as any' is necessary only because there's no contract on route
+        })//this casting 'as any' is necessary only because there's no contract on route
         if(error){
           //if authentication fails, go back to login page
           router.push('/twitchAuth')

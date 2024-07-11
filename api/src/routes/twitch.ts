@@ -51,7 +51,7 @@ async function fetchUser(token: string) {
   return response.data[0]
 }
 
-twitchRouter.POST('/twitchAuth', async(context)=>{
+twitchRouter.POST('/auth', async(context)=>{
 
   const twitchTempToken = await exchangeCodeForAccessToken(context.request.payload.code) //swap code for access token
   const twitchTempUser = await fetchUser(twitchTempToken.access_token) // get twitch user data

@@ -133,24 +133,29 @@ declare type MirrorDescriptions = {
       "name"
     ],
     "actions": {
-      "ui:spawnAdd": {
+      "spawnAdd": {
         "label": "action.add",
+        "event": "spawnAdd",
         "icon": "plus",
         "button": true,
         "translate": true
       }
     },
     "individualActions": {
-      "ui:spawnEdit": {
+      "spawnEdit": {
         "label": "action.edit",
+        "event": "spawnEdit",
         "icon": "pencil-simple",
         "translate": true
       },
-      "route:/dashboard/crud/:id": {
+      "viewItem": {
         "label": "action.view",
         "icon": "eye",
         "translate": true,
-        "setItem": true
+        "route": {
+          "name": "/dashboard/:collection/:id",
+          "setItem": true
+        }
       },
       "remove": {
         "label": "action.remove",
@@ -307,27 +312,34 @@ declare type MirrorDescriptions = {
       }
     },
     "individualActions": {
-      "ui:spawnEdit": {
-        "label": "action.edit",
-        "icon": "pencil-simple",
-        "translate": true
-      },
-      "route:/dashboard/user/changepass": {
+      "changePassword": {
         "label": "change_password",
         "icon": "key",
-        "fetchItem": true,
-        "translate": true
+        "translate": true,
+        "route": {
+          "name": "/dashboard/user/changepass",
+          "fetchItem": true
+        }
       },
       "copyActivationLink": {
         "label": "copy_activation_link",
         "icon": "link",
         "translate": true
       },
-      "route:/dashboard/crud/:id": {
+      "spawnEdit": {
+        "label": "action.edit",
+        "event": "spawnEdit",
+        "icon": "pencil-simple",
+        "translate": true
+      },
+      "viewItem": {
         "label": "action.view",
         "icon": "eye",
         "translate": true,
-        "setItem": true
+        "route": {
+          "name": "/dashboard/:collection/:id",
+          "setItem": true
+        }
       },
       "remove": {
         "label": "action.remove",
@@ -335,8 +347,9 @@ declare type MirrorDescriptions = {
         "ask": true,
         "translate": true
       },
-      "ui:duplicate": {
+      "duplicate": {
         "label": "action.duplicate",
+        "event": "duplicate",
         "icon": "copy",
         "translate": true
       }
@@ -368,8 +381,9 @@ declare type MirrorDescriptions = {
       }
     },
     "actions": {
-      "ui:spawnAdd": {
+      "spawnAdd": {
         "label": "action.add",
+        "event": "spawnAdd",
         "icon": "plus",
         "button": true,
         "translate": true
@@ -547,7 +561,7 @@ declare type MirrorRouter = {
   "/test": {
     "GET": null
   },
-  "/twitch/twitchAuth": {
+  "/twitch/auth": {
     "POST": null
   }
 }
